@@ -20,11 +20,15 @@ Command options:
 	-template {source.9.png}: Gets border information from another file
 	-expand WxH: Expand a 9-patch to W by H pixels (including 9-patch border)
 	-spec: For each source file, look for a matching ".spec" file and apply it
+	-specfile {filename}: For each source file, use the specified spec file
 	
 For the -spec argument, a file named the same as the source file but with ".spec"
 appended is loaded.  If it exists, then the "sx", "sy", "px", "py" properties
 define the pixels to set and the image will be cleared to a reset nine patch
 and the properties applied.
+
+The -specfile argument takes a filename, which uses the same format as the 
+".spec" file described above.
 
 All arguments that take {pixels} take a comma delimitted list of zero based
 pixel numbers or ranges.  Example: 0,1,10-20

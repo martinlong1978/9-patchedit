@@ -20,10 +20,25 @@ import java.util.Properties;
  *
  */
 public class SpecEditCommand extends EditCommand {
+	
+	private String filename;
+	
+	public SpecEditCommand(){
+	}
+	
+	public SpecEditCommand(String filename){
+		this.filename = filename;
+	}
+	
 
 	@Override
 	public void performEdit(EditContext context, NinePatchImage npi) throws Exception {
-		File specFile=new File(npi.source.toString() + ".spec");
+		if(filename == null){
+			filename = npi.source.toString() + ".spec";
+		}
+		
+		File specFile=new File(filename);
+		
 		if (!specFile.exists()) {
 			System.err.println("  - No spec file found " + specFile);
 		}

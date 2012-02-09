@@ -89,6 +89,8 @@ public class NinePatchEdit implements EditContext {
 					commands.add(cmd);
 				} else if ("-spec".equals(arg)) {
 					commands.add(new SpecEditCommand());
+				} else if ("-specfile".equals(arg)) {
+					commands.add(new SpecEditCommand(nextArg(args, ++i)));
 				} else {
 					syntax("Unrecognized command line option: " + arg);
 				}
